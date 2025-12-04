@@ -2,6 +2,8 @@ import Image from "next/image";
 import Topbar from "./components/Topbar";
 import PlayButton from "./components/PlayButton";
 import NotificationsButton from "./components/NotificationsButton";
+import GithubStarButton from "./components/GithubStarButton";
+import ThemeToggleButton from "./components/ThemeToggleButton";
 
 export default function Home() {
   return (
@@ -24,6 +26,8 @@ export default function Home() {
 
       <PlayButton className="absolute bottom-3 right-2 z-20" />
       <NotificationsButton className="absolute top-2.5 left-2" />
+      <GithubStarButton className="absolute top-2.5 right-2 z-50" />
+      <ThemeToggleButton className="absolute top-20 right-2 z-50"/>
     </div>
   );
 }

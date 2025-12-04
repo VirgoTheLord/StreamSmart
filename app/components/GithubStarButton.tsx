@@ -3,21 +3,21 @@
 import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Bell } from "lucide-react";
+import { Github } from "lucide-react";
 
 gsap.registerPlugin(useGSAP);
 
-interface NotificationsButtonProps {
+interface GithubStarButtonProps {
   className?: string;
   onClick?: () => void;
 }
 
-const NotificationsButton = ({
+const GithubStarButton = ({
   className = "",
   onClick,
-}: NotificationsButtonProps) => {
+}: GithubStarButtonProps) => {
   const btnRef = useRef<HTMLButtonElement | null>(null);
-  const fillRef = useRef<HTMLSpanElement | null>(null);
+  const fillRef = useRef<HTMLDivElement | null>(null);
 
   useGSAP(() => {
     if (!btnRef.current || !fillRef.current) return;
@@ -25,7 +25,7 @@ const NotificationsButton = ({
     const btn = btnRef.current;
     const fill = fillRef.current;
 
-    // start with filled bell "hidden" via scale from top-left (diagonal reveal)
+    // hide fill (diagonal) initially
     gsap.set(fill, {
       scaleX: 0,
       scaleY: 0,
@@ -37,7 +37,7 @@ const NotificationsButton = ({
       gsap.to(fill, {
         scaleX: 1,
         scaleY: 1,
-        duration: 0.35,
+        duration: 0.4,
         ease: "power3.out",
       });
     };
@@ -64,31 +64,32 @@ const NotificationsButton = ({
   return (
     <button
       ref={btnRef}
-      type="button"
       onClick={onClick}
+      type="button"
       className={`
-        flex items-center justify-center
-        w-12 h-11.5
-        rounded-md
-        bg-black
-        border border-white/10
-        backdrop-blur-sm
-        cursor-pointer
+        overflow-hidden
+        flex items-center gap-2 
+        rounded-md px-9 py-5 
+        bg-black cursor-pointer select-none
+        group
         ${className}
       `}
-      aria-label="Notifications"
     >
-      {/* base bell (faint) */}
-      <span className="relative inline-flex">
-        <Bell className="w-6 h-6 text-white/50" />
+      {/* diagonal fill bg */}
+      <div ref={fillRef} className="absolute inset-0 rounded-md bg-white z-0" />
 
-        {/* filled bell that reveals diagonally */}
-        <span ref={fillRef} className="absolute inset-0 inline-flex">
-          <Bell className="w-6 h-6 text-white" />
+      {/* content (single layer) */}
+      <div className="relative z-10 inline-flex items-center gap-2">
+        <Github
+          size={24}
+          className="transition-colors duration-200 text-white group-hover:text-black"
+        />
+        <span className="font-space-grotesk text-sm font-semibold transition-colors duration-200 uppercase text-white group-hover:text-black">
+          Star us
         </span>
-      </span>
+      </div>
     </button>
   );
 };
 
-export default NotificationsButton;
+export default GithubStarButton;

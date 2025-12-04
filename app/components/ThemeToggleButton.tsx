@@ -3,19 +3,21 @@
 import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Bell } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
 
 gsap.registerPlugin(useGSAP);
 
-interface NotificationsButtonProps {
+interface ThemeToggleButtonProps {
   className?: string;
   onClick?: () => void;
+  isDark?: boolean; // optional externally controlled theme state
 }
 
-const NotificationsButton = ({
+const ThemeToggleButton = ({
   className = "",
   onClick,
-}: NotificationsButtonProps) => {
+  isDark = false,
+}: ThemeToggleButtonProps) => {
   const btnRef = useRef<HTMLButtonElement | null>(null);
   const fillRef = useRef<HTMLSpanElement | null>(null);
 
@@ -25,11 +27,10 @@ const NotificationsButton = ({
     const btn = btnRef.current;
     const fill = fillRef.current;
 
-    // start with filled bell "hidden" via scale from top-left (diagonal reveal)
     gsap.set(fill, {
       scaleX: 0,
       scaleY: 0,
-      transformOrigin: "0% 0%", // top-left corner
+      transformOrigin: "100% 0%",
     });
 
     const enter = () => {
@@ -66,9 +67,10 @@ const NotificationsButton = ({
       ref={btnRef}
       type="button"
       onClick={onClick}
+      aria-label="Toggle theme"
       className={`
         flex items-center justify-center
-        w-12 h-11.5
+        w-19 h-15
         rounded-md
         bg-black
         border border-white/10
@@ -76,19 +78,26 @@ const NotificationsButton = ({
         cursor-pointer
         ${className}
       `}
-      aria-label="Notifications"
     >
-      {/* base bell (faint) */}
+      {/* Base Icon (faded) */}
       <span className="relative inline-flex">
-        <Bell className="w-6 h-6 text-white/50" />
+        {isDark ? (
+          <Moon className="w-8 h-8 text-white/50" />
+        ) : (
+          <Sun className="w-8 h-8 text-white/50" />
+        )}
 
-        {/* filled bell that reveals diagonally */}
+        {/* Filled reveal icon */}
         <span ref={fillRef} className="absolute inset-0 inline-flex">
-          <Bell className="w-6 h-6 text-white" />
+          {isDark ? (
+            <Moon className="w-8 h-8 text-white" />
+          ) : (
+            <Sun className="w-8 h-8 text-white" />
+          )}
         </span>
       </span>
     </button>
   );
 };
 
-export default NotificationsButton;
+export default ThemeToggleButton;
