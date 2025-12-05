@@ -71,7 +71,7 @@ const NotificationsButton = ({
         w-12 h-11.5
         rounded-md
         bg-black
-        border border-white/10
+        border border-white
         backdrop-blur-sm
         cursor-pointer
         ${className}

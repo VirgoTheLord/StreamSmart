@@ -10,11 +10,10 @@ export default function Home() {
     <div className="relative min-h-screen flex justify-center items-center bg-white">
       <Topbar />
 
-      <div className="absolute flex justify-center items-center">
+      <div className="absolute inset-0 m-2">
         <Image
           src="/background.svg"
-          width={1520}
-          height={800}
+          fill
           alt="Background"
           className="object-cover"
         />
