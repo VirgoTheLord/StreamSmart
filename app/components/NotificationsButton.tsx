@@ -68,11 +68,9 @@ const NotificationsButton = ({
       onClick={onClick}
       className={`
         flex items-center justify-center
-        w-12 h-11.5
+        w-12 h-10
         rounded-md
         bg-black
-        border border-white
-        backdrop-blur-sm
         cursor-pointer
         ${className}
       `}

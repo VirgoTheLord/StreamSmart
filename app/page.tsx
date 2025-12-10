@@ -1,32 +1,20 @@
 import Image from "next/image";
 import Topbar from "./components/Topbar";
 import PlayButton from "./components/PlayButton";
-import NotificationsButton from "./components/NotificationsButton";
-import GithubStarButton from "./components/GithubStarButton";
-import ThemeToggleButton from "./components/ThemeToggleButton";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen flex justify-center items-center bg-white">
-      <Topbar />
+    <div className="min-h-screen bg-white flex flex-col overflow-hidden">
+      {/* Black container with white border via padding */}
+      <div className="flex-1 w-full bg-black relative flex justify-center items-center pt-24">
+        <Topbar />
 
-      <div className="absolute inset-0 m-2">
-        <Image
-          src="/background.svg"
-          fill
-          alt="Background"
-          className="object-cover"
-        />
+        <h1 className="absolute bottom-2 left-18 z-10 text-[18vh] font-star text-white">
+          StreamSmart
+        </h1>
+
+        <PlayButton className="absolute bottom-6 right-2 z-20 border-b-2 border-r-2" />
       </div>
-
-      <h1 className="absolute bottom-2 left-18 z-10 text-[18vh] font-star text-white">
-        StreamSmart
-      </h1>
-
-      <PlayButton className="absolute bottom-3 right-2 z-20" />
-      <NotificationsButton className="absolute top-2.5 left-2" />
-      <GithubStarButton className="absolute top-2.5 right-2 z-50" />
-      <ThemeToggleButton className="absolute top-20 right-2 z-50"/>
     </div>
   );
 }

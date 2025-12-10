@@ -36,10 +36,10 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="w-[1050px]">
+    <nav className="w-full h-full min-w-0">
       <div
         ref={containerRef}
-        className="relative bg-white bg-opacity-90 backdrop-blur-md rounded-sm p-0.5 shadow-md flex"
+        className="relative bg-white bg-opacity-90 backdrop-blur-md rounded-sm p-0.5 shadow-md flex h-full min-w-0 overflow-hidden"
       >
         <div
           ref={sliderRef}

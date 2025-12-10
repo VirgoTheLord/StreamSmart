@@ -73,8 +73,6 @@ const ThemeToggleButton = ({
         w-19 h-15
         rounded-md
         bg-black
-        border border-white/10
-        backdrop-blur-sm
         cursor-pointer
         ${className}
       `}

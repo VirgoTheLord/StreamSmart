@@ -67,21 +67,24 @@ const GithubStarButton = ({
       onClick={onClick}
       type="button"
       className={`
-        overflow-hidden
+        relative isolate overflow-hidden
         flex items-center gap-2 
-        rounded-md px-9 py-5 
+        rounded-sm px-9 py-2 
         bg-black cursor-pointer select-none
         group
         ${className}
       `}
     >
       {/* diagonal fill bg */}
-      <div ref={fillRef} className="absolute inset-0 rounded-md bg-white z-0" />
+      <div
+        ref={fillRef}
+        className="absolute inset-0 rounded-md bg-white z-0 pointer-events-none"
+      />
 
       {/* content (single layer) */}
       <div className="relative z-10 inline-flex items-center gap-2">
         <Github
-          size={24}
+          size={22}
           className="transition-colors duration-200 text-white group-hover:text-black"
         />
         <span className="font-space-grotesk text-sm font-semibold transition-colors duration-200 uppercase text-white group-hover:text-black">
