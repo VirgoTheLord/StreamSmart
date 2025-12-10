@@ -70,7 +70,7 @@ const NotificationsButton = ({
         flex items-center justify-center
         w-12 h-11
         rounded-md
-        bg-[#0f0f0f]
+        bg-[#202020]
         cursor-pointer
         [box-shadow:0_0_10px_-1px_#00000040]
         border border-black/50

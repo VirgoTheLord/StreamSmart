@@ -29,7 +29,7 @@ const GithubStarButton = ({
         relative isolate overflow-hidden
         flex items-center gap-2 
         rounded-sm px-9 py-3 
-        bg-[#0f0f0f] cursor-pointer select-none
+        bg-[#202020] cursor-pointer select-none
         group
         [box-shadow:0_0_10px_-1px_#00000040]
         border border-black/50

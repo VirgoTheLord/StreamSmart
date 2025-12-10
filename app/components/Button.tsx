@@ -114,7 +114,7 @@ const Button = ({
     <button
       ref={btnRef}
       onClick={onClick}
-      className={`relative overflow-hidden px-16 py-2.5 cursor-pointer rounded-sm font-space-grotesk font-extrabold text-sm uppercase shadow-md backdrop-blur-md ${variants[variant]} ${className}`}
+      className={`relative overflow-hidden px-16 py-2.5 cursor-pointer rounded-tl-2xl rounded-br-2xl font-space-grotesk font-extrabold text-sm uppercase shadow-md backdrop-blur-md ${variants[variant]} ${className}`}
     >
       {/* underlying label */}
       <span className="relative z-10">{children}</span>
