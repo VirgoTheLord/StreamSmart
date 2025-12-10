@@ -68,16 +68,25 @@ const NotificationsButton = ({
       onClick={onClick}
       className={`
         flex items-center justify-center
-        w-12 h-10
+        w-12 h-11
         rounded-md
-        bg-black
+        bg-[#0f0f0f]
         cursor-pointer
+        [box-shadow:0_0_10px_-1px_#00000040]
+        border border-black/50
+        after:absolute after:content-[''] after:inset-0 after:border-[#2A2A2A]
+       after:border-b-[3px] after:border-b-black/50
+        hover:after:border-b-0 after:border-r-0 hover:after:border-t-black/50
+        hover:after:[box-shadow:0_5px_15px_0_#00000070_inset]
+        after:rounded-md overflow-hidden
+        transition-transform hover:translate-y-1
+        relative
         ${className}
       `}
       aria-label="Notifications"
     >
       {/* base bell (faint) */}
-      <span className="relative inline-flex">
+      <span className="relative inline-flex z-10">
         <Bell className="w-6 h-6 text-white/50" />
 
         {/* filled bell that reveals diagonally */}

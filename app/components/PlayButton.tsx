@@ -62,10 +62,10 @@ const PlayButton = ({ className = "", onClick }: PlayButtonProps) => {
       ref={btnRef}
       type="button"
       onClick={onClick}
-      className={`w-25 h-19 bg-black rounded-br-4xl rounded-lg flex justify-center items-center cursor-pointer ${className}`}
+      className={`[box-shadow:0_0_5px_-1px_#00000040] border border-black/50 after:absolute after:content-[''] after:inset-0 after:border-[#2A2A2A] bg-[#0f0f0f] flex items-center justify-center after:border-b-[3px] after:border-b-black/50 hover:after:border-b-0 after:border-r-0 hover:after:border-t-black/50 hover:after:[box-shadow:0_5px_15px_0_#00000070_inset] rounded-br-4xl rounded-lg overflow-hidden after:rounded-br-4xl after:rounded-lg w-25 h-19 transition-transform hover:translate-y-1 cursor-pointer ${className}`}
     >
       <svg
-        className="w-12 h-12 text-white"
+        className="w-12 h-12 text-white relative z-10 pointer-events-none"
         viewBox="0 0 24 24"
         aria-hidden="true"
       >
@@ -79,7 +79,7 @@ const PlayButton = ({ className = "", onClick }: PlayButtonProps) => {
         />
 
         {/* filled version that reveals diagonally */}
-        <g ref={fillRef}>
+        <g ref={fillRef} style={{ willChange: "transform" }}>
           <path d="M8 5v14l11-7z" fill="currentColor" />
         </g>
       </svg>

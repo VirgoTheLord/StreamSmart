@@ -4,16 +4,15 @@ import PlayButton from "./components/PlayButton";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white flex flex-col overflow-hidden">
-      {/* Black container with white border via padding */}
-      <div className="flex-1 w-full bg-black relative flex justify-center items-center pt-24">
+    <div className="min-h-screen flex flex-col overflow-hidden">
+      <div className="flex-1 w-full relative flex justify-center items-center pt-24">
         <Topbar />
 
         <h1 className="absolute bottom-2 left-18 z-10 text-[18vh] font-star text-white">
           StreamSmart
         </h1>
 
-        <PlayButton className="absolute bottom-6 right-2 z-20 border-b-2 border-r-2" />
+        <PlayButton className="absolute bottom-6 right-2 z-20" />
       </div>
     </div>
   );
