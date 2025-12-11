@@ -7,7 +7,7 @@ import NotificationsButton from "./NotificationsButton";
 const Topbar = () => {
   return (
     <div className="fixed top-0 left-0 right-0 w-full max-w-full z-50 overflow-hidden">
-      <div className="flex items-center gap-4 px-4 py-3 h-20 w-full min-w-0 relative z-10">
+      <div className="flex items-center gap-2 md:gap-3 lg:gap-4 px-2 md:px-3 lg:px-4 py-2 md:py-2.5 lg:py-3 h-16 md:h-18 lg:h-20 w-full min-w-0 relative z-10">
         {/* Notifications Button */}
         <NotificationsButton className="shrink-0" />
 
